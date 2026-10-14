@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitt-Wise - Smart Financial Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo"><img src="vitt-wise-logo.png" alt="Vitt-Wise"></a>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="expense.html">Add Expense & Budget</a></li>
+            <li><a href="lessons.html">Financial Lessons</a></li>
+            <li><a href="market.html">Stock Market</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Financial Advisor Quote / Tip Card -->
+        <div class="card" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white;">
+            <h2>Daily Financial Wisdom</h2>
+            <blockquote id="quote-text" style="font-size: 1.25rem; font-style: italic; margin: 1.0rem 0;">
+                "Loading quote..."
+            </blockquote>
+            <p id="quote-author" style="margin: 0; opacity: 0.9; font-weight: 500;">— Advisor</p>
+        </div>
+
+        <!-- Budget Overview Graph Card -->
+        <div class="card">
+            <h2>Sample Monthly Budget Allocation</h2>
+            <p style="color: var(--text-muted);">Here is how a standard balanced budget looks using the 50/30/20
+                guideline.</p>
+            <div style="max-width: 400px; margin: 0 auto;">
+                <canvas id="budgetOverviewChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Floating Component -->
+    <div class="chat-widget-btn" onclick="toggleChat()">💬</div>
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-header">
+            <span>AI Financial Advisor</span>
+            <span class="chat-close" onclick="toggleChat()">&times;</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">Hi there! Ask me any financial question or doubt you have, or tap a quick question
+                below:</div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+                <button type="button" onclick="sendPreset('How do I start saving?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">💡
+                    How do I start saving?</button>
+                <button type="button" onclick="sendPreset('Should I buy individual stocks?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">📈
+                    Should I buy individual stocks?</button>
+                <button type="button" onclick="sendPreset('What is the 50/30/20 rule?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">📊
+                    What is the 50/30/20 rule?</button>
+            </div>
+        </div>
+        <!-- ADD THIS FOOTER BLOCK BACK -->
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Ask about saving, stocks..."
+                onkeypress="handleChatEnter(event)">
+            <button onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

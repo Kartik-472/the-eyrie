@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market - Vitt-Wise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo"><img src="vitt-wise-logo.png" alt="Vitt-Wise"></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="expense.html">Add Expense & Budget</a></li>
+            <li><a href="lessons.html">Financial Lessons</a></li>
+            <li><a href="market.html" class="active">Stock Market</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Market Overview & Beginner Assets</h1>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Live, beginner-friendly market graphs powered by
+            TradingView widget integration.</p>
+
+        <!-- TradingView Widget BEGIN -->
+        <div class="card" style="height: 680px; padding: 0; overflow: hidden;">
+            <div class="tradingview-widget-container" style="height: 1000px; width: 100%;">
+                <div class="tradingview-widget-container__widget" style="height: 100%; width: 100%;"></div>
+                <script type="application/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                        {
+                            "autosize": true,
+                            "symbol": "NASDAQ:AAPL",
+                            "interval": "D",
+                            "timezone": "Etc/UTC",
+                            "theme": "light",
+                            "style": "1",
+                            "locale": "en",
+                            "allow_symbol_change": true,
+                            "calendar": false,
+                            "support_host": "https://www.tradingview.com"
+                        }
+                    </script>
+            </div>
+        </div>
+        <!-- TradingView Widget END -->
+    </div>
+
+    <!-- AI Chatbot Floating Component -->
+    <div class="chat-widget-btn" onclick="toggleChat()">💬</div>
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-header">
+            <span>AI Financial Advisor</span>
+            <span class="chat-close" onclick="toggleChat()">&times;</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">Hi there! Ask me any financial question or doubt you have, or tap a quick question
+                below:</div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+                <button type="button" onclick="sendPreset('How do I start saving?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">💡
+                    How do I start saving?</button>
+                <button type="button" onclick="sendPreset('Should I buy individual stocks?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">📈
+                    Should I buy individual stocks?</button>
+                <button type="button" onclick="sendPreset('What is the 50/30/20 rule?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">📊
+                    What is the 50/30/20 rule?</button>
+            </div>
+        </div>
+        <!-- ADD THIS FOOTER BLOCK BACK -->
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Ask about saving, stocks..."
+                onkeypress="handleChatEnter(event)">
+            <button onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

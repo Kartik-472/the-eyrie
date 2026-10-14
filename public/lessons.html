@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Lessons - Vitt-Wise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo"><img src="vitt-wise-logo.png" alt="Vitt-Wise"></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="expense.html">Add Expense & Budget</a></li>
+            <li><a href="lessons.html" class="active">Financial Lessons</a></li>
+            <li><a href="market.html">Stock Market</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Bite-Sized Financial Masterclass</h1>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Learn at your own pace with 5 to 15 minute quick
+            courses designed by financial advisors.</p>
+
+        <div class="card">
+            <h3>⏱️ 5-Min Quick Course: The Emergency Fund Rule</h3>
+            <p style="color: var(--text-muted);">Duration: 5 mins | Beginner Level</p>
+            <p>An emergency fund is your financial safety net. Aim to stash away 3 to 6 months of essential living
+                expenses in a high-yield savings account so unexpected job loss or medical bills never force you into
+                high-interest debt.</p>
+            <button onclick="alert('Quick course completed! Great job taking charge of your finances.')">Mark as
+                Completed</button>
+        </div>
+
+        <div class="card">
+            <h3>📖 15-Min Masterclass: Introduction to Index Funds & ETFs</h3>
+            <p style="color: var(--text-muted);">Duration: 15 mins | Intermediate Level</p>
+            <p>Instead of guessing which single stock will skyrocket, index funds let you buy a tiny slice of hundreds
+                of top companies (like Apple, Microsoft, Amazon) all at once. This automatic diversification drastically
+                lowers risk for long-term investors.</p>
+            <button onclick="alert('Masterclass completed! You earned a virtual badge.')">Mark as Completed</button>
+        </div>
+
+        <div class="card">
+            <h3>📖 10-Min Masterclass: Understanding Credit Scores & Interest</h3>
+            <p style="color: var(--text-muted);">Duration: 10 mins | Beginner Level</p>
+            <p>Your credit score determines how banks view your reliability. Paying credit card bills in full every
+                month keeps your utilization low and unlocks lower mortgage and loan interest rates over your lifetime.
+            </p>
+            <button onclick="alert('Masterclass completed!')">Mark as Completed</button>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Floating Component -->
+    <div class="chat-widget-btn" onclick="toggleChat()">💬</div>
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-header">
+            <span>AI Financial Advisor</span>
+            <span class="chat-close" onclick="toggleChat()">&times;</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">Hi there! Ask me any financial question or doubt you have, or tap a quick question
+                below:</div>
+            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+                <button type="button" onclick="sendPreset('How do I start saving?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">💡
+                    How do I start saving?</button>
+                <button type="button" onclick="sendPreset('Should I buy individual stocks?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">📈
+                    Should I buy individual stocks?</button>
+                <button type="button" onclick="sendPreset('What is the 50/30/20 rule?')"
+                    style="background: #e2e8f0; color: #1e293b; font-size: 0.8rem; padding: 6px 10px; border-radius: 6px; text-align: left; cursor: pointer; border: none; width: 100%;">📊
+                    What is the 50/30/20 rule?</button>
+            </div>
+        </div>
+        <!-- ADD THIS FOOTER BLOCK BACK -->
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Ask about saving, stocks..."
+                onkeypress="handleChatEnter(event)">
+            <button onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

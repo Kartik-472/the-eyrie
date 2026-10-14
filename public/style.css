@@ -1,0 +1,225 @@
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+}
+
+/* Fixed Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.navbar-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+    border: none;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--primary);
+}
+
+/* Layout container */
+.container {
+    max-width: 900px;
+    margin: 100px auto 60px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: var(--text-main);
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0 1rem 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* AI Chatbot Floating Widget */
+.chat-widget-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: var(--primary);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    cursor: pointer;
+    z-index: 2000;
+    transition: transform 0.2s;
+}
+
+.chat-widget-btn:hover {
+    transform: scale(1.05);
+}
+
+.chat-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 350px;
+    height: 450px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    z-index: 2000;
+    border: 1px solid var(--border-color);
+}
+
+.chat-header {
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-close {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.chat-msg {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.chat-msg.bot {
+    background: #f1f5f9;
+    align-self: flex-start;
+    color: var(--text-main);
+}
+
+.chat-msg.user {
+    background: var(--primary);
+    color: white;
+    align-self: flex-end;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.chat-footer input {
+    flex: 1;
+    width: auto;
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+.chat-footer button {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+}
